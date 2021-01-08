@@ -19,17 +19,17 @@ struct ContentView: View {
         NavigationView{
             Form {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("When do you want to wake up?").font(.headline)
+                    Text("When do you want to wake up?").font(.headline).foregroundColor(.blue)
                     DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute).labelsHidden().datePickerStyle(WheelDatePickerStyle())
                 }
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("Desired amout of sleep").font(.headline)
+                    Text("Desired amout of sleep").font(.headline).foregroundColor(.blue)
                     Stepper(value:$sleepAmount, in: 4...12, step: 0.25){
                         Text("\(sleepAmount ,specifier: "%g") Hours").padding()
                     }
                 }
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("Daily coffee intake").font(.headline)
+                    Text("Daily coffee intake").font(.headline).foregroundColor(.blue)
                     
                     Stepper(value: $coffeeAmount, in: 1...10){
                         if coffeeAmount == 1{
@@ -44,7 +44,7 @@ struct ContentView: View {
             .navigationBarItems(trailing:
                                     Button(action: calculateBedtime) {
                                             Text("Calculate")
-                                        }
+                                    }.padding()
             ) .alert(isPresented: $showingAlert) {
                 Alert(title: Text(alertTitle), message: Text(alertMsg), dismissButton: .default(Text("OK")))
             }
@@ -92,28 +92,3 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-
-/**        let now = Date()
-        let tomorrow = Date().addTimeInterval(86400)
-        let range = now ... tomorrow
-        
-        var components = DateComponents()
-        components.hour = 8
-        components.minute = 0
-        let date = Calendar.current.date(from: components) ?? Date()
-        
-        let components = Calendar.current.dateComponents([.hour, .minute], from: Date())
-        let hour = components.hour ?? 0
-        let minute = components.minute ?? 0
-        
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        let dateString = formatter.string(from: Date())
-      
-        return DatePicker("Enter Date", selection:$wakeUp, in: Date()...).labelsHidden()
-               
-        Stepper(value: $sleepAmount, in: 5...10, step:0.25){
-            Text("\(sleepAmount, specifier: "%g") hours")
-        }
-
-**/
