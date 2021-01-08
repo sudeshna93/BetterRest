@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  BetterRest
 //
-//  Created by Arnab Sudeshna on 11/24/20.
+//  Created by Sudeshna on 11/24/20.
 //
 
 import UIKit

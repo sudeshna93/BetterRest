@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  BetterRest
 //
-//  Created by Arnab Sudeshna on 11/24/20.
+//  Created by Sudeshna Patra on 11/24/20.
 //
 
 import SwiftUI
